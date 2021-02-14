@@ -25,8 +25,6 @@ services:
       - default
   estcmd:
     build: ./estcmd
-    #restart: always
-    #command: gather -sd /index /source
     volumes:
       - ./index:/index
       - ./source:/source
