@@ -10,7 +10,7 @@ lockindex: true
 
 pseudoindex:
 
-replace: ^file:///source/{{!}}http://localhost/
+replace: ^file:///source/{{!}}${BASE_URL}
 replace: /index\.html?${{!}}/
 
 showlreal: false

@@ -7,7 +7,7 @@ ENV HE_URL https://dbmx.net/hyperestraier/hyperestraier-1.4.13.tar.gz
 
 
 RUN apk update &&\
-    apk --no-cache add curl gcc gcc6 make libc-dev zlib-dev lighttpd  &&\
+    apk --no-cache add gettext curl gcc gcc6 make libc-dev zlib-dev lighttpd  &&\
     curl -o /tmp/qdbm.tar.gz ${QDBM_URL} &&\
     curl -o /tmp/hyperestraier.tar.gz ${HE_URL} &&\
     tar xvzf /tmp/hyperestraier.tar.gz -C /tmp &&\

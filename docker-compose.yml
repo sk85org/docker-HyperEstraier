@@ -7,20 +7,24 @@ services:
     build: ./lighttpd
     volumes:
       - ./index:/index
-      - ./lighttpd/configuration:/configuration
+      - ./configuration_files:/configuration
       - ./lighttpd/startscript:/startscript
     ports: 
      - 80:80
+    environment:
+     - BASE_URL=http://localhost/
     restart: always
     networks:
       - default
   estcmd:
     build: ./estcmd
+    environment:
+      - INITIAL_COMMAND=estcmd gather -cl -il ja -sd -cm
     volumes:
       - ./index:/index
       - ./source:/source
       - ./estcmd/startscript:/startscript
-      - ./estcmd/cron_configuration:/cron_configuration
+      - ./configuration_files:/cron_configuration
     networks:
       - default
   
