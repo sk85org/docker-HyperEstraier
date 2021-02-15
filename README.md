@@ -5,7 +5,7 @@ docker-HyperEstraierを使うことでDockerコンテナ上で[Hyper Estraier](h
 ## 使い方
 ### 初期設定
 #### docker-compose.yml
-docker-HyperEstraierはGUIを担当するコンテナ(app)と文章の登録を担当するコンテナ(estcmd)に分かれています。docker-compose.ymlのestcmd下にある./sourceに検索したいフォルダを指定してください。
+docker-HyperEstraierはGUIを担当するコンテナ(app)と文章の登録を担当するコンテナ(estcmd)に分かれています。docker-compose.ymlのestcmd下にある./sourceにホスト上の検索したいフォルダを指定してください。
 ```
 version: '3.3'
 
@@ -16,27 +16,41 @@ services:
     build: ./lighttpd
     volumes:
       - ./index:/index
-      - ./lighttpd/configuration:/configuration
+      - ./configuration_files:/configuration
       - ./lighttpd/startscript:/startscript
     ports: 
      - 80:80
+    environment:
+     - BASE_URL=http://localhost/
     restart: always
     networks:
       - default
   estcmd:
     build: ./estcmd
+    environment:
+      - INITIAL_COMMAND=estcmd gather -cl -il ja -sd -cm
     volumes:
       - ./index:/index
       - ./source:/source
       - ./estcmd/startscript:/startscript
-      - ./estcmd/cron_configuration:/cron_configuration
+      - ./configuration_files:/cron_configuration
     networks:
       - default
+  
+```
+検索されるファイルパスをURLで置き換えるためにBASE_URLを設定してください。  
+例 /www/public/test.html が https://www.example.org/test.html でアクセスできる場合、BASE_URLは以下のようになります。
+```
+    environment:
+     - BASE_URL=https://www.example.org/
 ```
 
 ### 起動
 ```
 docker-compose up -d
 ```
-[localhost:80](http://localhost:80)でコンテナが起動します。  
+初期設定の場合は  
+[http://localhost:80](http://localhost:80)でコンテナが起動します。  
+
+### インデックスの更新時間
 デフォルト設定ではUTC時間で毎日0時に新しく追加されたファイルがインデックスに登録されます。またUTC時間で毎日3時に削除されたファイルがインデックスから取り除かれます。
