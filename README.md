@@ -5,7 +5,7 @@ docker-HyperEstraierを使うことでDockerコンテナ上で[Hyper Estraier](h
 ## 使い方
 ### 初期設定
 #### docker-compose.yml
-docker-HyperEstraierはGUIを担当するコンテナ(app)と文章の登録を担当するコンテナ(estcmd)に分かれています。docker-compose.ymlのestcmd下にある./sourceにホスト上の検索したいフォルダを指定してください。
+docker-HyperEstraierはGUIを担当するコンテナ(app)と文章の登録を担当するコンテナ(estcmd)に分かれています。docker-compose.ymlのestcmd下にある./sourceにホスト上の検索したいフォルダを指定してください
 ```
 version: '3.3'
 
