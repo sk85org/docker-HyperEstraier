@@ -6,6 +6,6 @@ cp --force /cron_configuration/cron_configuration /var/spool/cron/crontabs/root
 cat /var/spool/cron/crontabs/root
 echo 
 echo /== First estcmd gather ==/
-${INITIAL_COMMAND} /index /source
+echo ${INITIAL_COMMAND} | /bin/sh -
 echo /== Cron Start ==/
 crond -l 2 -f

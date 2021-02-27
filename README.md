@@ -28,7 +28,7 @@ services:
   estcmd:
     build: ./estcmd
     environment:
-      - INITIAL_COMMAND=estcmd gather -cl -il ja -sd -cm
+      - INITIAL_COMMAND=estcmd gather -cl -il ja -sd -cm /index /source
     volumes:
       - ./index:/index
       - ./source:/source
