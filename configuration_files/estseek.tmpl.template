@@ -12,24 +12,34 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta name="generator" content="Hyper Estraier" />
 <meta name="robots" content="NOFOLLOW" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="contents" href="./" />
 <link rev="made" href="mailto:magnus@hyperestraier.gov" />
 <title><!--ESTTITLE--></title>
-<style type="text/css">html {
+<style type="text/css">
+
+html {
+  font-size: 62.5%;
   margin: 0em 0em; padding: 0em 0em;
   background: #ffffff none;
 }
+
 body {
-  margin: 0em 0em; padding: 0em 0em;
-  color: #111111;
+    font-size: 17px;
+    font-size: 1.7rem;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    line-height: 1.6;
 }
+
 div.estform {
   margin: 0.8em 1.0em; padding: 0em 1.0em;
   background: #eeeeff none; border: solid 1pt #bbbbcc;
   -moz-border-radius: 0.4em;
 }
 div.form_navi {
-  position: absolute; top: 1.5em; right: 2em;
   margin: 0em 0em; padding: 0em 0em; text-align: right;
   font-size: smaller;
 }
