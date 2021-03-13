@@ -1,7 +1,9 @@
 #!/bin/sh
-mkdir -p /www/public
-cp /usr/local/libexec/estseek.cgi /www/public
-chmod 755 /www/public/estseek.cgi 
+mkdir -p /www/public/cgi
+cp /usr/local/libexec/estseek.cgi /www/public/cgi
+touch //www/public/index.html
+chmod 755 /www/public/cgi/estseek.cgi 
+
 
 for f in /configuration/estseek.*.template
 do 
@@ -9,7 +11,7 @@ do
     outputfile=${f%.template}
     outputfile_basename=${outputfile##*/}
     #echo $outputfile_basename
-    envsubst < $f > /www/public/$outputfile_basename
+    envsubst < $f > /www/public/cgi/$outputfile_basename
 done
 
 lighttpd -D -f /configuration/lighttpd.conf

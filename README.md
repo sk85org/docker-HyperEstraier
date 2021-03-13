@@ -21,7 +21,7 @@ services:
     ports: 
      - 80:80
     environment:
-     - BASE_URL=http://localhost/
+     - BASE_URL=http://localhost/cgi/
     restart: always
     networks:
       - default
@@ -39,7 +39,7 @@ services:
   
 ```
 検索されるファイルパスをURLで置き換えるためにBASE_URLを設定してください。  
-例 /www/public/test.html が https://www.example.org/test.html でアクセスできる場合、BASE_URLは以下のようになります。
+例 ホストの/www/public/test.html が https://www.example.org/test.html でアクセスできる場合、BASE_URLは以下のようになります。
 ```
     environment:
      - BASE_URL=https://www.example.org/
@@ -50,7 +50,7 @@ services:
 docker-compose up -d
 ```
 初期設定の場合は  
-[http://localhost:80](http://localhost:80)でコンテナが起動します。  
+[http://localhost:80/cgi/](http://localhost:80/cgi/)にアクセスすると検索画面が現れます。  
 
 ### インデックスの更新時間
 デフォルト設定ではUTC時間で毎日0時に新しく追加されたファイルがインデックスに登録されます。またUTC時間で毎日3時に削除されたファイルがインデックスから取り除かれます。
