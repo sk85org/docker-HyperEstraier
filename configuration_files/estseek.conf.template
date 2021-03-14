@@ -17,7 +17,7 @@ showlreal: false
 
 deftitle: Hyper Estraier: a full-text search system for communities
 
-formtype: normal
+formtype: web
 
 perpage: 10 100 10
 
