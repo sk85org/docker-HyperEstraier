@@ -30,12 +30,8 @@ body {
     font-family: 'Helvetica Neue', 'Arial', sans-serif;
     width: 100%;
     margin: 0 auto;
-    padding: 0 auto;
+    padding: 0 16px;
     line-height: 1.6;
-}
-
-input {
-  max-width: 100%;
 }
 
 div.estform {
@@ -262,7 +258,12 @@ div.help pre {
   -moz-border-radius: 0.2em;
 }
 </style>
-<script type="text/javascript">
+<script type="text/javascript">function startup(){
+  if((document.location + "").indexOf("#") != -1) return;
+  var elem = document.getElementById("phrase");
+  if(elem) elem.focus();
+}
+window.onload = startup;
 function changemax(){
   var elem = document.getElementById("form_self");
   if(elem) elem.submit();
